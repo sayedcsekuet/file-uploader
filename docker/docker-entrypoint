@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -e
+ENTRYPOINT_SCAN_DIR="/etc/docker-entrypoint.d"
+for f in `ls "$ENTRYPOINT_SCAN_DIR" | sort`; do
+    if [ -f "$ENTRYPOINT_SCAN_DIR/$f" ]; then
+        echo "running $ENTRYPOINT_SCAN_DIR/$f";
+        . "$ENTRYPOINT_SCAN_DIR/$f"
+    fi
+done
+
+echo "starting $@"
+exec "$@"

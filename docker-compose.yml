@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  #mysql
+  local-mysql:
+    image: mysql:5.7.30
+    container_name: local-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "file_uploader"
+    volumes:
+      - ~/local-mysql:/var/lib/mysql
+    ports:
+      - 3307:3306
+    networks:
+      - net
+  local-file-uploader:
+    container_name: local-file-uploader
+    build:
+      context: ./
+    env_file:
+      - .env
+    links:
+      - local-mysql
+    environment:
+      DB_HOST: local-mysql
+    volumes:
+      - ./docker/clamav/database/:/database/
+      - ./bin/file-uploader:/file-uploader
+      - ./migrations:/migrations
+    ports:
+      - 8085:8085
+    networks:
+      - net
+
+networks:
+  net:
+    external:
+      name: platform_net

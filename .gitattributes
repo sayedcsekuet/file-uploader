@@ -1,0 +1,2 @@
+*.cvd filter=lfs diff=lfs merge=lfs -text
+*.cld filter=lfs diff=lfs merge=lfs -text
