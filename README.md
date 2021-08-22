@@ -43,7 +43,7 @@ In order to generate mocks, use [mockery](https://github.com/vektra/mockery)
 |FILE_STORAGE_DRIVER|s3|
 |FILE_STORAGE_DISABLE_SSL|false|
 |FILE_STORAGE_REGION|eu-central-1|
-|FILE_STORAGE_PROFILE|eqs-sandbox|
+|FILE_STORAGE_PROFILE|xxx-sandbox|
 |FILE_STORAGE_ACCESS_KEY| |
 |FILE_STORAGE_SECRET| |
 |S3_FORCE_PATH_STYLE| empty means true | 
@@ -100,7 +100,7 @@ Token Generation: To generate the token for downloading or streaming the file, y
       "mime_type": "text/x-vcard"
     },
     "owner_id": "asdfjkasdf",
-    "bucket_path": "eqs-file-upload/test/957ad83c-3e7f-494e-89b7-717cad82103d.vcf",
+    "bucket_path": "xxx-file-upload/test/957ad83c-3e7f-494e-89b7-717cad82103d.vcf",
     "provider": "s3",
     "created_at": "2021-05-10T06:37:42Z",
     "expired_at": "2021-05-12T19:21:04Z"
@@ -124,7 +124,7 @@ Token Generation: To generate the token for downloading or streaming the file, y
 
 |Name         |Type|Value     |Required| Example
 |-------------|----|---------|-----|---|
-|bucket_path   | string |  <BUCKET_PATH>| x|eqs-bucket or eqs-bucket/\<POSTFIX>|
+|bucket_path   | string |  <BUCKET_PATH>| x|xxx-bucket or xxx-bucket/\<POSTFIX>|
 |files[0].file | file |  <FILE_TO_UPLOAD>| x||
 |files[0].id   | string |  <UUID_4> or will be auto generated| ||
 |files[1].file | file|  <FILE_TO_UPLOAD>| x||
@@ -196,7 +196,7 @@ Response 201, all file uploaded successfully:
     "mime_type": "text/x-vcard"
   },
   "owner_id": "asdfjkasdf",
-  "bucket_path": "eqs-file-upload/test/62ce012e-44b7-42f3-b017-ebbbfaa6bede.vcf",
+  "bucket_path": "xxx-file-upload/test/62ce012e-44b7-42f3-b017-ebbbfaa6bede.vcf",
   "provider": "s3",
   "created_at": "2021-05-07T18:08:02Z",
   "expired_at": "2021-05-12T19:21:04Z"
